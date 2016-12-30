@@ -1,0 +1,181 @@
+{
+  "referenceRange": [
+    {
+      "modifierExtension": [
+        {
+          "url": "http://www.cdrossi.com.ar/validezrangoreferencia",
+          "valuePeriod": {
+            "start": "2013-01-01T00:00:00"
+          }
+        }
+      ],
+      "low": {
+        "value": 0.5,
+        "units": "mUI/ml",
+        "system": "http://unitsofmeasure.org",
+        "code": "mUI/ml"
+      },
+      "high": {
+        "value": 2.5,
+        "units": "mUI/ml",
+        "system": "http://unitsofmeasure.org",
+        "code": "mUI/ml"
+      },
+      "meaning": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/v2/0078",
+            "code": "N"
+          }
+        ]
+      },
+      "age": {
+        "high": {
+          "code": "a",
+          "system": "http://unitsofmeasure.org",
+          "unit": "yrs",
+          "value": 0.5,
+          "comparator": "<="
+        }
+      }
+    },
+    {
+      "modifierExtension": [
+        {
+          "url": "http://www.cdrossi.com.ar/validezrangoreferencia",
+          "valuePeriod": {
+            "start": "2013-01-01T00:00:00"
+          }
+        }
+      ],
+      "low": {
+        "value": 0.5,
+        "units": "mUI/ml",
+        "system": "http://unitsofmeasure.org",
+        "code": "mUI/ml"
+      },
+      "high": {
+        "value": 0.9,
+        "units": "mUI/ml",
+        "system": "http://unitsofmeasure.org",
+        "code": "mUI/ml"
+      },
+      "meaning": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/v2/0078",
+            "code": "N"
+          }
+        ]
+      },
+      "age": {
+        "low": {
+          "code": "a",
+          "system": "http://unitsofmeasure.org",
+          "unit": "yrs",
+          "value": 0.5,
+          "comparator": ">"
+        },
+        "high": {
+          "code": "a",
+          "system": "http://unitsofmeasure.org",
+          "unit": "yrs",
+          "value": 2,
+          "comparator": "<="
+        }
+      }
+    },
+    {
+      "modifierExtension": [
+        {
+          "url": "http://www.cdrossi.com.ar/validezrangoreferencia",
+          "valuePeriod": {
+            "start": "2013-01-01T00:00:00"
+          }
+        }
+      ],
+      "low": {
+        "value": 0.5,
+        "units": "mUI/ml",
+        "system": "http://unitsofmeasure.org",
+        "code": "mUI/ml"
+      },
+      "high": {
+        "value": 2,
+        "units": "mUI/ml",
+        "system": "http://unitsofmeasure.org",
+        "code": "mUI/ml"
+      },
+      "meaning": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/v2/0078",
+            "code": "N"
+          }
+        ]
+      },
+      "age": {
+        "low": {
+          "code": "a",
+          "system": "http://unitsofmeasure.org",
+          "unit": "yrs",
+          "value": 2,
+          "comparator": ">"
+        },
+        "high": {
+          "code": "a",
+          "system": "http://unitsofmeasure.org",
+          "unit": "yrs",
+          "value": 8,
+          "comparator": "<="
+        }
+      }
+    },
+    {
+      "modifierExtension": [
+        {
+          "url": "http://www.cdrossi.com.ar/validezrangoreferencia",
+          "valuePeriod": {
+            "start": "2013-01-01T00:00:00"
+          }
+        }
+      ],
+      "low": {
+        "value": 1,
+        "units": "mUI/ml",
+        "system": "http://unitsofmeasure.org",
+        "code": "mUI/ml"
+      },
+      "high": {
+        "value": 5,
+        "units": "mUI/ml",
+        "system": "http://unitsofmeasure.org",
+        "code": "mUI/ml"
+      },
+      "meaning": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/v2/0078",
+            "code": "N"
+          }
+        ]
+      },
+      "age": {
+        "low": {
+          "code": "a",
+          "system": "http://unitsofmeasure.org",
+          "unit": "yrs",
+          "value": 8,
+          "comparator": ">"
+        },
+        "high": {
+          "code": "a",
+          "system": "http://unitsofmeasure.org",
+          "unit": "yrs",
+          "value": 10,
+          "comparator": "<="
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+language: node_js
+node_js:
+- "stable"
+notifications:
+  slack: antena:893m2IIUbX6FSaiyTvySqVJI

@@ -1,0 +1,48 @@
+{
+  "name": "fhir-utils",
+  "version": "0.0.0",
+  "description": "Collection of helper utilities related to fhir's speficifacation.",
+  "keywords": [
+    "fhir",
+    "lab",
+    "hl7"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Antena/fhir-utils",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Antena/fhir-utils"
+  },
+  "bugs": {
+    "url": "https://github.com/Antena/fhir-utils/issues"
+  },
+  "author": {
+    "name": "Denise Fernandez",
+    "email": "denise@antena.co",
+    "url": "https://github.com/Antena"
+  },
+  "maintainers": [
+    "Denise Fernandez <denise@antena.co>",
+    "Denise Fernandez <lostie@gmail.com>",
+    "Gonzalo Bellver <gonzalo@antena.co>"
+  ],
+  "main": "src/index.js",
+  "devDependencies": {
+    "jscs": "^3.0.7",
+    "jscs-stylish": "^0.3.1",
+    "jshint": "^2.9.2",
+    "jshint-stylish": "^2.2.0",
+    "mocha": "^3.0.1",
+    "should": "^11.1.2"
+  },
+  "scripts": {
+    "lint": "jshint . --reporter=node_modules/jshint-stylish; jscs . --reporter=node_modules/jscs-stylish",
+    "test": "mocha test/**/*.spec.js -R spec"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "dependencies": {
+    "underscore": "^1.8.3"
+  }
+}
