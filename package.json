@@ -1,6 +1,6 @@
 {
   "name": "fhir-utils",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Collection of helper utilities related to fhir's speficifacation.",
   "keywords": [
     "fhir",
