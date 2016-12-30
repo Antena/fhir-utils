@@ -1,14 +1,6 @@
 {
   "referenceRange": [
     {
-      "modifierExtension": [
-        {
-          "url": "http://www.cdrossi.com.ar/validezrangoreferencia",
-          "valuePeriod": {
-            "start": "2013-01-01T00:00:00"
-          }
-        }
-      ],
       "low": {
         "value": 0.5,
         "units": "mUI/ml",
@@ -40,14 +32,6 @@
       }
     },
     {
-      "modifierExtension": [
-        {
-          "url": "http://www.cdrossi.com.ar/validezrangoreferencia",
-          "valuePeriod": {
-            "start": "2013-01-01T00:00:00"
-          }
-        }
-      ],
       "low": {
         "value": 0.5,
         "units": "mUI/ml",
@@ -86,14 +70,6 @@
       }
     },
     {
-      "modifierExtension": [
-        {
-          "url": "http://www.cdrossi.com.ar/validezrangoreferencia",
-          "valuePeriod": {
-            "start": "2013-01-01T00:00:00"
-          }
-        }
-      ],
       "low": {
         "value": 0.5,
         "units": "mUI/ml",
@@ -132,14 +108,6 @@
       }
     },
     {
-      "modifierExtension": [
-        {
-          "url": "http://www.cdrossi.com.ar/validezrangoreferencia",
-          "valuePeriod": {
-            "start": "2013-01-01T00:00:00"
-          }
-        }
-      ],
       "low": {
         "value": 1,
         "units": "mUI/ml",

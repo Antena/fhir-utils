@@ -2,7 +2,7 @@
 
 var should = require("should"),
 	_ = require('underscore'),
-	RangeService = require("../../src/ranges/range-service")(),
+	RangeService = require("../src/ranges/range-service")(),
 	demoRanges = require('./data/referenceRanges.json');
 
 describe("Range Service", function() {
@@ -88,7 +88,7 @@ describe("Range Service", function() {
 
 		var ageQuantityInYears = {
 			high: {
-				code: "yrs",
+				code: "a",
 				system: "http://unitsofmeasure.org",
 				unit: "years",
 				value: 0.5,

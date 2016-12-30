@@ -22,7 +22,7 @@ module.exports = function() {
 		'>=': function(a, b) { return a >= b; },
 		'>': function(a, b) { return a > b; },
 		'==': function(a, b) { return a === b; }
-
+	
 	};
 	// jscs:enable requireBlocksOnNewline
 

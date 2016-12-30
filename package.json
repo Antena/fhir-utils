@@ -1,7 +1,7 @@
 {
   "name": "fhir-utils",
   "version": "0.0.1",
-  "description": "Collection of helper utilities related to fhir's speficifacation.",
+  "description": "Collection of helper utilities related to FHIR v0.5.0 speficification (https://www.hl7.org/fhir/2015MAY/).",
   "keywords": [
     "fhir",
     "lab",
@@ -43,6 +43,7 @@
     "node": ">=0.10.0"
   },
   "dependencies": {
+    "lodash": "^4.17.3",
     "underscore": "^1.8.3"
   }
 }
