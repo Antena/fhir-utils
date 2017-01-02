@@ -145,5 +145,77 @@
         }
       }
     }
+  ],
+  "referenceRangeWithComparator": [
+    {
+      "low": {
+        "value": 0.5,
+        "units": "mUI/ml",
+        "system": "http://unitsofmeasure.org",
+        "code": "mUI/ml",
+        "comparator": ">"
+      },
+      "high": {
+        "value": 2.5,
+        "units": "mUI/ml",
+        "system": "http://unitsofmeasure.org",
+        "code": "mUI/ml",
+        "comparator": "<"
+      },
+      "meaning": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/v2/0078",
+            "code": "N"
+          }
+        ]
+      }
+    },
+    {
+      "low": {
+        "value": 0.5,
+        "units": "mUI/ml",
+        "system": "http://unitsofmeasure.org",
+        "code": "mUI/ml",
+        "comparator": ">"
+      },
+      "high": {
+        "value": 2.5,
+        "units": "mUI/ml",
+        "system": "http://unitsofmeasure.org",
+        "code": "mUI/ml"
+      },
+      "meaning": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/v2/0078",
+            "code": "N"
+          }
+        ]
+      }
+    },
+    {
+      "low": {
+        "value": 0.5,
+        "units": "mUI/ml",
+        "system": "http://unitsofmeasure.org",
+        "code": "mUI/ml"
+      },
+      "high": {
+        "value": 2.5,
+        "units": "mUI/ml",
+        "system": "http://unitsofmeasure.org",
+        "code": "mUI/ml",
+        "comparator": "<"
+      },
+      "meaning": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/v2/0078",
+            "code": "N"
+          }
+        ]
+      }
+    }
   ]
 }

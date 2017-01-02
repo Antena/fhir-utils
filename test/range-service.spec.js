@@ -7,7 +7,7 @@ var should = require("should"),
 
 describe("Range Service", function() {
 
-	describe("OPERATORS", function() {
+	describe("QUANTITY_COMPARATOR_OPERATORS", function() {
 		var t1Params = [5, 8];
 		var t2Params = [5, 5.211231];
 		var t3Params = [5, 5];
@@ -16,10 +16,10 @@ describe("Range Service", function() {
 		it("should properly evaluate less than (<) operator", function() {
 
 			var op = '<';
-			var isLessThanInt = RangeService.OPERATORS[op](t1Params[0], t1Params[1]);
-			var isLessThanDouble = RangeService.OPERATORS[op](t2Params[0], t2Params[1]);
-			var isEqual = RangeService.OPERATORS[op](t3Params[0], t3Params[1]);
-			var isGreaterThan = RangeService.OPERATORS[op](t4Params[0], t4Params[1]);
+			var isLessThanInt = RangeService.QUANTITY_COMPARATOR_OPERATORS[op](t1Params[0], t1Params[1]);
+			var isLessThanDouble = RangeService.QUANTITY_COMPARATOR_OPERATORS[op](t2Params[0], t2Params[1]);
+			var isEqual = RangeService.QUANTITY_COMPARATOR_OPERATORS[op](t3Params[0], t3Params[1]);
+			var isGreaterThan = RangeService.QUANTITY_COMPARATOR_OPERATORS[op](t4Params[0], t4Params[1]);
 
 			isLessThanInt.should.be.true();
 			isLessThanDouble.should.be.true();
@@ -30,10 +30,10 @@ describe("Range Service", function() {
 		it("should properly evaluate less than equal (<=) operator", function() {
 
 			var op = '<=';
-			var isLessThanInt = RangeService.OPERATORS[op](t1Params[0], t1Params[1]);
-			var isLessThanDouble = RangeService.OPERATORS[op](t2Params[0], t2Params[1]);
-			var isEqual = RangeService.OPERATORS[op](t3Params[0], t3Params[1]);
-			var isGreaterThan = RangeService.OPERATORS[op](t4Params[0], t4Params[1]);
+			var isLessThanInt = RangeService.QUANTITY_COMPARATOR_OPERATORS[op](t1Params[0], t1Params[1]);
+			var isLessThanDouble = RangeService.QUANTITY_COMPARATOR_OPERATORS[op](t2Params[0], t2Params[1]);
+			var isEqual = RangeService.QUANTITY_COMPARATOR_OPERATORS[op](t3Params[0], t3Params[1]);
+			var isGreaterThan = RangeService.QUANTITY_COMPARATOR_OPERATORS[op](t4Params[0], t4Params[1]);
 
 			isLessThanInt.should.be.true();
 			isLessThanDouble.should.be.true();
@@ -44,10 +44,10 @@ describe("Range Service", function() {
 		it("should properly evaluate greater than equal (>=) operator", function() {
 
 			var op = '>=';
-			var isLessThanInt = RangeService.OPERATORS[op](t1Params[0], t1Params[1]);
-			var isLessThanDouble = RangeService.OPERATORS[op](t2Params[0], t2Params[1]);
-			var isEqual = RangeService.OPERATORS[op](t3Params[0], t3Params[1]);
-			var isGreaterThan = RangeService.OPERATORS[op](t4Params[0], t4Params[1]);
+			var isLessThanInt = RangeService.QUANTITY_COMPARATOR_OPERATORS[op](t1Params[0], t1Params[1]);
+			var isLessThanDouble = RangeService.QUANTITY_COMPARATOR_OPERATORS[op](t2Params[0], t2Params[1]);
+			var isEqual = RangeService.QUANTITY_COMPARATOR_OPERATORS[op](t3Params[0], t3Params[1]);
+			var isGreaterThan = RangeService.QUANTITY_COMPARATOR_OPERATORS[op](t4Params[0], t4Params[1]);
 
 			isLessThanInt.should.be.false();
 			isLessThanDouble.should.be.false();
@@ -58,10 +58,10 @@ describe("Range Service", function() {
 		it("should properly evaluate greater than (>) operator", function() {
 
 			var op = '>';
-			var isLessThanInt = RangeService.OPERATORS[op](t1Params[0], t1Params[1]);
-			var isLessThanDouble = RangeService.OPERATORS[op](t2Params[0], t2Params[1]);
-			var isEqual = RangeService.OPERATORS[op](t3Params[0], t3Params[1]);
-			var isGreaterThan = RangeService.OPERATORS[op](t4Params[0], t4Params[1]);
+			var isLessThanInt = RangeService.QUANTITY_COMPARATOR_OPERATORS[op](t1Params[0], t1Params[1]);
+			var isLessThanDouble = RangeService.QUANTITY_COMPARATOR_OPERATORS[op](t2Params[0], t2Params[1]);
+			var isEqual = RangeService.QUANTITY_COMPARATOR_OPERATORS[op](t3Params[0], t3Params[1]);
+			var isGreaterThan = RangeService.QUANTITY_COMPARATOR_OPERATORS[op](t4Params[0], t4Params[1]);
 
 			isLessThanInt.should.be.false();
 			isLessThanDouble.should.be.false();
@@ -72,10 +72,10 @@ describe("Range Service", function() {
 		it("should properly evaluate equal (==) operator", function() {
 
 			var op = '==';
-			var isLessThanInt = RangeService.OPERATORS[op](t1Params[0], t1Params[1]);
-			var isLessThanDouble = RangeService.OPERATORS[op](t2Params[0], t2Params[1]);
-			var isEqual = RangeService.OPERATORS[op](t3Params[0], t3Params[1]);
-			var isGreaterThan = RangeService.OPERATORS[op](t4Params[0], t4Params[1]);
+			var isLessThanInt = RangeService.QUANTITY_COMPARATOR_OPERATORS[op](t1Params[0], t1Params[1]);
+			var isLessThanDouble = RangeService.QUANTITY_COMPARATOR_OPERATORS[op](t2Params[0], t2Params[1]);
+			var isEqual = RangeService.QUANTITY_COMPARATOR_OPERATORS[op](t3Params[0], t3Params[1]);
+			var isGreaterThan = RangeService.QUANTITY_COMPARATOR_OPERATORS[op](t4Params[0], t4Params[1]);
 
 			isLessThanInt.should.be.false();
 			isLessThanDouble.should.be.false();
@@ -158,6 +158,39 @@ describe("Range Service", function() {
 		it("should return empty array if no age-appropriate range found", function() {
 			var filteredRanges = RangeService.filterRanges(_.first(demoRanges.referenceRange, 2), 6, 'female');
 			filteredRanges.should.be.eql([]);
+		});
+	});
+
+	describe("valueInRange", function() {
+
+		it("should properly detect if value falls within a range w/ comparators", function() {
+			var excludingEdgesRange = demoRanges.referenceRangeWithComparator[0];
+			RangeService.valueInRange(0.5, excludingEdgesRange).should.be.false();
+			RangeService.valueInRange(2.5, excludingEdgesRange).should.be.false();
+			RangeService.valueInRange(0.55, excludingEdgesRange).should.be.true();
+			RangeService.valueInRange(2.45, excludingEdgesRange).should.be.true();
+
+			var excludingLowEdgeRange = demoRanges.referenceRangeWithComparator[1];
+			RangeService.valueInRange(0.5, excludingLowEdgeRange).should.be.false();
+			RangeService.valueInRange(2.5, excludingLowEdgeRange).should.be.true();
+			RangeService.valueInRange(0.55, excludingLowEdgeRange).should.be.true();
+			RangeService.valueInRange(2.45, excludingLowEdgeRange).should.be.true();
+
+			var excludingHighEdgeRange = demoRanges.referenceRangeWithComparator[2];
+			RangeService.valueInRange(0.5, excludingHighEdgeRange).should.be.true();
+			RangeService.valueInRange(2.5, excludingHighEdgeRange).should.be.false();
+			RangeService.valueInRange(0.55, excludingHighEdgeRange).should.be.true();
+			RangeService.valueInRange(2.45, excludingHighEdgeRange).should.be.true();
+		});
+
+		it("should properly detect if value falls within a range w/o comparators", function() {
+			var includingEdgesRange = demoRanges.referenceRange[0];
+			RangeService.valueInRange(0.5, includingEdgesRange).should.be.true();
+			RangeService.valueInRange(2.5, includingEdgesRange).should.be.true();
+			RangeService.valueInRange(0.55, includingEdgesRange).should.be.true();
+			RangeService.valueInRange(2.45, includingEdgesRange).should.be.true();
+			RangeService.valueInRange(0.45, includingEdgesRange).should.be.false();
+			RangeService.valueInRange(2.55, includingEdgesRange).should.be.false();
 		});
 	});
 });

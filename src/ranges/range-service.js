@@ -15,14 +15,17 @@ var _ = require('underscore');
 
 module.exports = function() {
 
+	var LOW_RANGE_COMPARATOR_DEFAULT = '>=';
+	var HIGH_RANGE_COMPARATOR_DEFAULT = '<=';
+
 	// jscs:disable requireBlocksOnNewline
-	var OPERATORS = {
+	var QUANTITY_COMPARATOR_OPERATORS = {
 		'<': function(a, b) { return a < b; },
 		'<=': function(a, b) { return a <= b; },
 		'>=': function(a, b) { return a >= b; },
 		'>': function(a, b) { return a > b; },
 		'==': function(a, b) { return a === b; }
-	
+
 	};
 	// jscs:enable requireBlocksOnNewline
 
@@ -56,8 +59,36 @@ module.exports = function() {
 	}
 
 	/**
+	 * Determines if a value fits in a specified range.
+	 *
 	 * @ngdoc function
-	 * @name withinRange
+	 * @name valueInRange
+	 * @param {Number} value: the value.
+	 * @param {Object} range A {@link https://www.hl7.org/fhir/2015MAY/datatypes.html#Range FHIR Range} to inspect.
+	 * @returns {boolean}
+	 */
+	var valueInRange = function(value, range) {
+		var result = false;
+
+		var lowQuantityComparator = !!range.low && !!range.low.comparator ? range.low.comparator : LOW_RANGE_COMPARATOR_DEFAULT;
+		var lowOperator = QUANTITY_COMPARATOR_OPERATORS[lowQuantityComparator];
+		var highQuantityComparator = !!range.high && !!range.high.comparator ? range.high.comparator : HIGH_RANGE_COMPARATOR_DEFAULT;
+		var highOperator = QUANTITY_COMPARATOR_OPERATORS[highQuantityComparator];
+
+		if (!!range.low && !!range.high) {
+			result = lowOperator(value, range.low.value) && highOperator(value, range.high.value);
+		} else if (!!range.low && !range.high) {
+			result = lowOperator(value, range.low.value);
+		} else if (!!range.high && !range.low) {
+			result = highOperator(value, range.high.value);
+		}
+
+		return result;
+	};
+
+	/**
+	 * @ngdoc function
+	 * @name isRangeAgeAppropriate
 	 * @methodOf lab-components.lab-observation.controller:LabObservationController
 	 * @description
 	 *
@@ -69,28 +100,28 @@ module.exports = function() {
 	 * @returns {Boolean} Returns true if this range is appropriate for the given patient's age.
 	 *
 	 */
-	function withinRange(range, patientAgeInYearsAtMomentOfReport) {
+	function isRangeAgeAppropriate(range, patientAgeInYearsAtMomentOfReport) {
 
 		var lowOK = true,
 			highOK = true,
 			op;
 
 		if (range.low) {
-			op = range.low.comparator || '==';
+			op = range.low.comparator || LOW_RANGE_COMPARATOR_DEFAULT;
 			var rangeLowValueInYears = range.low.value;
 			if (range.low.code !== 'a') {
 				rangeLowValueInYears = valueToYears(range.low);
 			}
-			lowOK = OPERATORS[op](patientAgeInYearsAtMomentOfReport, rangeLowValueInYears);
+			lowOK = QUANTITY_COMPARATOR_OPERATORS[op](patientAgeInYearsAtMomentOfReport, rangeLowValueInYears);
 		}
 
 		if (range.high) {
-			op = range.high.comparator || '==';
+			op = range.high.comparator || HIGH_RANGE_COMPARATOR_DEFAULT;
 			var rangeHighValueInYears = range.high.value;
 			if (range.high.code !== 'a') {
 				rangeHighValueInYears = valueToYears(range.high);
 			}
-			highOK = OPERATORS[op](patientAgeInYearsAtMomentOfReport, rangeHighValueInYears);
+			highOK = QUANTITY_COMPARATOR_OPERATORS[op](patientAgeInYearsAtMomentOfReport, rangeHighValueInYears);
 		}
 
 		return lowOK && highOK;
@@ -115,7 +146,7 @@ module.exports = function() {
 		return _.filter(referenceRanges, function(range) {
 			var genderConditioned = _.findWhere(range.modifierExtension, { url: "http://hl7.org/fhir/ValueSet/administrative-gender" });
 			var appliesGenderWise = !patientGender || !genderConditioned || genderConditioned.valueCode === patientGender;
-			var appliesAgeWise = !range.age || !patientAgeInYears || withinRange(range.age, patientAgeInYears);
+			var appliesAgeWise = !range.age || !patientAgeInYears || isRangeAgeAppropriate(range.age, patientAgeInYears);
 
 			return appliesGenderWise && appliesAgeWise;
 		});
@@ -123,8 +154,9 @@ module.exports = function() {
 
 	return {
 		filterRanges: filterRanges,
-		withinRange: withinRange,
+		isRangeAgeAppropriate: isRangeAgeAppropriate,
 		valueToYears: valueToYears,
-		OPERATORS: OPERATORS
+		valueInRange: valueInRange,
+		QUANTITY_COMPARATOR_OPERATORS: QUANTITY_COMPARATOR_OPERATORS
 	};
 };
