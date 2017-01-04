@@ -1,15 +1,13 @@
 'use strict';
 
 /**
- * @ngdoc service
- * @name fhir-utils.service:FhirBundleResolverService
- * @kind function
+ * @namespace bundle/bundle-resolver-service
  *
  * @description
  * Given a valid FHIR bundle, embeds referenced resources.
  *
- * <div class="alert alert-warning">
- * **Note:** this service only supports a few types of FHIR resources for the moment.
+ * <div style="color: #c09853; background-color: #fcf8e3; border: 1px solid #fbeed5; padding: 10px; margin: 10px 0;">
+ * <p style="font-family: Helvetica; font-weight: bold;">Note: this service only supports a few types of FHIR resources for the moment.</p>
  *
  * List of supported resource types:
  * <ul>
@@ -63,7 +61,7 @@ module.exports = function() {
 
 	function resolveRelatedObservations(realObs, fhirBundleResources) {
 		if (realObs.related) {
-			realObs.related = _.map(realObs.related, function (relatedObs) {
+			realObs.related = _.map(realObs.related, function(relatedObs) {
 				var resolved;
 
 				if (relatedObs.target && relatedObs.target.reference) {
@@ -86,9 +84,9 @@ module.exports = function() {
 	return {
 
 		/**
-		 * @ngdoc function
-		 * @name resolveOrderAndReportReferences
-		 * @methodOf lab-components.service:FhirBundleService
+		 * @static
+		 * @memberOf bundle/bundle-resolver-service
+		 *
 		 * @description
 		 *
 		 * Takes a FHIR bundle, and resolves all references starting from a `DiagnosticOrder`. If a orderValueIdentifier is provided,
@@ -97,7 +95,7 @@ module.exports = function() {
 		 * @param {Object} fhirBundle A valid FHIR bundle.
 		 * @param {String=} orderValueIdentifier The order identifier value from which all resolutions begin (`order.identifier[0].value`)
 		 *
-		 * @returns {Object} The resolved bundle, with the following structure:
+		 * @return {Object} The resolved bundle, with the following structure:
 		 * ```js
 		 * {
 		 *   // each of these contains all embedded resources (orderer, subject, etc)
@@ -105,16 +103,7 @@ module.exports = function() {
 		 *   diagnosticReport: report,
 		 *   observations: report.result
 		 * };
-		 * ```
 		 *
-		 * @example
-		 *
-		 * ```js
-		 *  var fhirBundle = require('./full-study-bundle.json');
-		 *
-		 *  var resolvedBundleForFirstOrder = FhirBundleService.resolveOrderAndReportReferences(fhirBundle);
-		 *  var resolvedBundleForSpecificOrder = FhirBundleService.resolveOrderAndReportReferences(fhirBundle, "123456");
-		 * ```
 		 */
 		resolveOrderAndReportReferences: function(fhirBundle, orderValueIdentifier) {
 
@@ -122,7 +111,7 @@ module.exports = function() {
 
 			/* Order */
 			var order;
-			if(!orderValueIdentifier) {
+			if (!orderValueIdentifier) {
 				// use the first one if no orderValueIdentifier provided
 				order = resolveOrder(fhirBundleResources);
 			} else {
@@ -137,7 +126,7 @@ module.exports = function() {
 			var orderId = "DiagnosticOrder/" + order.id;
 
 			/* Report */
-			var rawReport =_.find(reports, function(r) {
+			var rawReport = _.find(reports, function(r) {
 				return r.requestDetail[0].reference === orderId;
 			});
 			var report = lodash.cloneDeep(rawReport);

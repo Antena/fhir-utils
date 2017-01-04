@@ -30,6 +30,7 @@
   "devDependencies": {
     "jscs": "^3.0.7",
     "jscs-stylish": "^0.3.1",
+    "jsdoc": "^3.4.0",
     "jshint": "^2.9.2",
     "jshint-stylish": "^2.2.0",
     "mocha": "^3.0.1",
@@ -37,7 +38,9 @@
   },
   "scripts": {
     "lint": "jshint . --reporter=node_modules/jshint-stylish; jscs . --reporter=node_modules/jscs-stylish",
-    "test": "mocha test/**/*.spec.js -R spec"
+    "test": "mocha test/**/*.spec.js -R spec",
+
+    "docs": "rm -rf docs && jsdoc src/**.js src/**/*.js -d docs"
   },
   "engines": {
     "node": ">=0.10.0"

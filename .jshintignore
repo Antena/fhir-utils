@@ -1,5 +1,3 @@
 node_modules
 dist
-example/node_modules
-example/dist
-test/data/component-2-result.js
+docs
