@@ -1,6 +1,6 @@
 {
   "name": "fhir-utils",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Collection of helper utilities related to FHIR v0.5.0 speficification (https://www.hl7.org/fhir/2015MAY/).",
   "keywords": [
     "fhir",
@@ -39,7 +39,6 @@
   "scripts": {
     "lint": "jshint . --reporter=node_modules/jshint-stylish; jscs . --reporter=node_modules/jscs-stylish",
     "test": "mocha test/**/*.spec.js -R spec",
-
     "docs": "rm -rf docs && jsdoc src/**.js src/**/*.js -d docs"
   },
   "engines": {
