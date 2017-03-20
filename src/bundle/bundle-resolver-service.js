@@ -127,7 +127,8 @@ module.exports = function() {
 
 			/* Report */
 			var rawReport = _.find(reports, function(r) {
-				return r.requestDetail[0].reference === orderId;
+				var request = r.requestDetail || r.request;
+				return request[0].reference === orderId;
 			});
 			var report = lodash.cloneDeep(rawReport);
 			report.subject = _.findWhere(fhirBundleResources, { resourceType: "Patient", id: getReferencedId(report.subject.reference)});
