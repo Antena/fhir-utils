@@ -127,7 +127,7 @@ module.exports = function() {
 
 			/* Report */
 			var rawReport = _.find(reports, function(r) {
-				var request = r.requestDetail || r.request;
+				var request = r.request;
 				return request[0].reference === orderId;
 			});
 			var report = lodash.cloneDeep(rawReport);
