@@ -127,13 +127,13 @@ module.exports = function() {
 
 			/* Report */
 			var rawReport = _.find(reports, function(r) {
-				var request = r.request;
+				var request = r.requestDetail || r.request;
 				return request[0].reference === orderId;
 			});
 			var report = lodash.cloneDeep(rawReport);
 			report.subject = _.findWhere(fhirBundleResources, { resourceType: "Patient", id: getReferencedId(report.subject.reference)});
 			report.performer = _.findWhere(fhirBundleResources, { resourceType: "Organization", id: getReferencedId(report.performer.reference)});
-			report.requestDetail = _.map(report.request, function(request) {
+			report.requestDetail = _.map(report.requestDetail || report.request, function(request) {
 				return resolveOrder(fhirBundleResources, getReferencedId(request.reference));
 			});
 			report.result = _.map(report.result, function(observation) {
