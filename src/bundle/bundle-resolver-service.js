@@ -133,8 +133,8 @@ module.exports = function() {
 			var report = lodash.cloneDeep(rawReport);
 			report.subject = _.findWhere(fhirBundleResources, { resourceType: "Patient", id: getReferencedId(report.subject.reference)});
 			report.performer = _.findWhere(fhirBundleResources, { resourceType: "Organization", id: getReferencedId(report.performer.reference)});
-			report.requestDetail = _.map(report.requestDetail, function(requestDetail) {
-				return resolveOrder(fhirBundleResources, getReferencedId(requestDetail.reference));
+			report.requestDetail = _.map(report.request, function(request) {
+				return resolveOrder(fhirBundleResources, getReferencedId(request.reference));
 			});
 			report.result = _.map(report.result, function(observation) {
 				var realObs = _.findWhere(fhirBundleResources, {resourceType: "Observation", id: getReferencedId(observation.reference)});
