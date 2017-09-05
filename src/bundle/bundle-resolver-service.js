@@ -35,10 +35,13 @@ module.exports = function() {
 	}
 
 	function resolveFromOrder(order, fhirBundleResources) {
-		order.orderer = lodash.cloneDeep(_.findWhere(fhirBundleResources, {
-			resourceType: "Practitioner",
-			id: getReferencedId(order.orderer.reference)
-		}));
+		// orderer is optional
+		if (order.orderer) {
+			order.orderer = lodash.cloneDeep(_.findWhere(fhirBundleResources, {
+				resourceType: "Practitioner",
+				id: getReferencedId(order.orderer.reference)
+			}));
+		}
 
 		order.subject = lodash.cloneDeep(_.findWhere(fhirBundleResources, {
 			resourceType: "Patient",
