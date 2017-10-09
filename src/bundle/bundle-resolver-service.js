@@ -25,7 +25,7 @@
  */
 
 var _ = require('underscore');
-var lodash = require('lodash');
+var cloneDeep = require('lodash/cloneDeep');
 
 // @ngInject
 module.exports = function() {
@@ -37,13 +37,13 @@ module.exports = function() {
 	function resolveFromOrder(order, fhirBundleResources) {
 		// orderer is optional
 		if (order.orderer) {
-			order.orderer = lodash.cloneDeep(_.findWhere(fhirBundleResources, {
+			order.orderer = cloneDeep(_.findWhere(fhirBundleResources, {
 				resourceType: "Practitioner",
 				id: getReferencedId(order.orderer.reference)
 			}));
 		}
 
-		order.subject = lodash.cloneDeep(_.findWhere(fhirBundleResources, {
+		order.subject = cloneDeep(_.findWhere(fhirBundleResources, {
 			resourceType: "Patient",
 			id: getReferencedId(order.subject.reference)
 		}));
@@ -57,7 +57,7 @@ module.exports = function() {
 			searchParams.id = orderReference;
 		}
 
-		var order = lodash.cloneDeep(_.findWhere(fhirBundleResources, searchParams));
+		var order = cloneDeep(_.findWhere(fhirBundleResources, searchParams));
 
 		return resolveFromOrder(order, fhirBundleResources);
 	}
@@ -133,7 +133,7 @@ module.exports = function() {
 				var request = r.requestDetail || r.request;
 				return request[0].reference === orderId;
 			});
-			var report = lodash.cloneDeep(rawReport);
+			var report = cloneDeep(rawReport);
 			report.subject = _.findWhere(fhirBundleResources, { resourceType: "Patient", id: getReferencedId(report.subject.reference)});
 			report.performer = _.findWhere(fhirBundleResources, { resourceType: "Organization", id: getReferencedId(report.performer.reference)});
 			report.requestDetail = _.map(report.requestDetail || report.request, function(request) {
