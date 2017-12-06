@@ -64,6 +64,10 @@ module.exports = function() {
 
 	function resolveRelatedObservations(realObs, fhirBundleResources) {
 		if (realObs.related) {
+			realObs.related = _.filter(realObs.related, function(relatedObs) {
+				return getReferencedId(relatedObs.target.reference) !== realObs.id;
+			});
+
 			realObs.related = _.map(realObs.related, function(relatedObs) {
 				var resolved;
 
