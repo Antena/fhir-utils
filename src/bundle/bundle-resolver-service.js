@@ -140,6 +140,9 @@ module.exports = function() {
 			var report = cloneDeep(rawReport);
 			report.subject = _.findWhere(fhirBundleResources, { resourceType: "Patient", id: getReferencedId(report.subject.reference)});
 			report.performer = _.findWhere(fhirBundleResources, { resourceType: "Organization", id: getReferencedId(report.performer.reference)});
+			if (report.performer && report.performer.partOf && report.performer.partOf.reference) {
+				report.performer.partOf = _.findWhere(fhirBundleResources, { resourceType: "Organization", id: getReferencedId(report.performer.partOf.reference)});
+			}
 			report.requestDetail = _.map(report.requestDetail || report.request, function(request) {
 				return resolveOrder(fhirBundleResources, getReferencedId(request.reference));
 			});
