@@ -1,5 +1,5 @@
 {
-  "name": "fhir-utils",
+  "name": "@wellbin/fhir-utils",
   "version": "0.0.10",
   "description": "Collection of helper utilities related to FHIR v0.5.0 speficification (https://www.hl7.org/fhir/2015MAY/).",
   "keywords": [
@@ -8,13 +8,13 @@
     "hl7"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/Antena/fhir-utils",
+  "homepage": "https://github.com/wellbin/fhir-utils",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Antena/fhir-utils"
+    "url": "https://github.com/wellbin/fhir-utils"
   },
   "bugs": {
-    "url": "https://github.com/Antena/fhir-utils/issues"
+    "url": "https://github.com/wellbin/fhir-utils/issues"
   },
   "author": {
     "name": "Denise Fernandez",
